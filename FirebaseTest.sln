@@ -1,7 +1,8 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseTest", "FirebaseTest\FirebaseTest.csproj", "{E3502108-4A92-4C4A-B387-0174801F9AFE}"
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirebaseTest", "FirebaseTest\FirebaseTest.csproj", "{E3502108-4A92-4C4A-B387-0174801F9AFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Energy", "Energy\Energy.csproj", "{51D18D91-7EC8-4AA0-9BEA-D0B532D98A24}"
 EndProject
@@ -17,7 +18,14 @@ Global
 		{E3502108-4A92-4C4A-B387-0174801F9AFE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{51D18D91-7EC8-4AA0-9BEA-D0B532D98A24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{51D18D91-7EC8-4AA0-9BEA-D0B532D98A24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D18D91-7EC8-4AA0-9BEA-D0B532D98A24}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{51D18D91-7EC8-4AA0-9BEA-D0B532D98A24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51D18D91-7EC8-4AA0-9BEA-D0B532D98A24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A8315DA-299E-4BD1-BE5D-90221A6BE0F5}
 	EndGlobalSection
 EndGlobal
