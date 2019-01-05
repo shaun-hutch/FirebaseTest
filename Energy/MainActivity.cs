@@ -20,7 +20,7 @@ namespace Energy
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
-            receiver = new BatteryReciever();
+            receiver = new BatteryReciever(this);
             filter = new IntentFilter(Intent.ActionBatteryChanged);
             var battery = RegisterReceiver(receiver, filter);
             txtBatteryLevel = FindViewById<TextView>(Resource.Id.batteryLevel);
@@ -38,11 +38,11 @@ namespace Energy
             Console.WriteLine("registered!");
         }
 
-        protected override void OnStop()
+        protected override void OnDestroy()
         {
             UnregisterReceiver(receiver);
             Console.WriteLine("Unregistered!");
-            base.OnStop();
+            base.OnDestroy();
         }
 
 
