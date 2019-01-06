@@ -47,6 +47,9 @@ namespace Energy
 			// aapt resource value: 0x7f040000
 			public const int batteryLevel = 2130968576;
 			
+			// aapt resource value: 0x7f040001
+			public const int switchBroadcast = 2130968577;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
