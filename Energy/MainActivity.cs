@@ -3,6 +3,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Content;
 using System;
+using Android.Graphics;
 
 namespace Energy
 {
@@ -19,9 +20,9 @@ namespace Energy
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
+            this.SetBarColours(Color.DarkGreen);
             receiver = new BatteryReciever(this);
             filter = new IntentFilter(Intent.ActionBatteryChanged);
             var battery = RegisterReceiver(receiver, filter);
