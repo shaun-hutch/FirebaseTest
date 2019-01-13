@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Content;
 using System;
 using Android.Graphics;
+using Firebase.Messaging;
 
 namespace Energy
 {
@@ -18,10 +19,23 @@ namespace Energy
         BatteryReciever receiver;
         IntentFilter filter;
 
+        internal static readonly string CHANNEL_ID = "test_channel";
+        internal static readonly int NOTIFICATION_ID = 3;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
+
+            if (Intent.Extras != null)
+            {
+                foreach (var key in Intent.Extras.KeySet())
+                {
+                    Console.WriteLine($"Key: {key}, Value: {Intent.Extras.GetString(key)}, ");
+                }
+            }
+
+
             this.SetBarColours(Color.DarkGreen);
             receiver = new BatteryReciever(this);
             filter = new IntentFilter(Intent.ActionBatteryChanged);
@@ -37,7 +51,12 @@ namespace Energy
 
             txtBatteryLevel.Text = $"Battery Level: {batteryPercentage}%";
 
+            bool playServicesAvailable = DroidHelper.IsPlayServicesAvailable(this);
+            Toast.MakeText(this, $"Google Play Services Availability: {(playServicesAvailable ? "Yes" : "No")}", ToastLength.Long).Show();
 
+            DroidHelper.CreateNotificationChannel(this, CHANNEL_ID);
+
+            FirebaseMessaging.Instance.SubscribeToTopic("test");
         }
 
         private void SwitchBroadcast_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
